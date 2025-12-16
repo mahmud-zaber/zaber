@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Strongest Love</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; }
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #4a1c1c;
+      overflow-x: hidden;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 30px;
+      max-width: 420px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      animation: fadeIn 2s ease;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 12px 0;
+    }
+    .heart {
+      font-size: 3rem;
+      animation: beat 1.5s infinite;
+      margin: 15px 0;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 22px;
+      border: none;
+      border-radius: 30px;
+      background: #ff6f91;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      transition: transform 0.2s ease;
+    }
+    button:hover { transform: scale(1.05); }
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <audio id="bgMusic" loop>
+    <source src="Tu zaroori sa hai mujhko  lyrics status love song status.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="card">
+    <h1>Hey My Love 🌸</h1>
+    <div class="heart">❤️</div>
+    <p>
+      I know today feels heavy, and your emotions are dancing in every direction.
+      That’s okay. You don’t have to be strong right now.
+    </p>
+    <p>
+      Even on your hardest days, you are still the most beautiful part of my life.
+      I’m right here — holding you, understanding you, loving you.
+    </p>
+    <p>
+      Take a deep breath. You are safe. You are loved. You are never alone.
+    </p>
+    <button onclick="playMusic()">Tap here, my love 💗</button>
+    <p style="margin-top:15px; font-size:0.9rem;">(This song is for your peace)</p>
+  </div>
+
+  <script>
+    function playMusic() {
+      const music = document.getElementById('bgMusic');
+      music.volume = 0.4;
+      music.play();
+    }
+  </script>
+
+</body>
+</html>

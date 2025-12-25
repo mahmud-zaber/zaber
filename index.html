@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🤍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Playfair Display', serif;
+    }
+
+    body {
+      height: 100vh;
+      background:
+        linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)),
+        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .screen {
+      text-align: center;
+      padding: 30px 25px;
+      background: rgba(255,255,255,0.82);
+      border-radius: 26px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      max-width: 340px;
+      animation: fadeIn 1.8s ease;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      color: #7a3e5d;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1.02rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .soft {
+      font-style: italic;
+      color: #6a5a6b;
+      margin: 18px 0;
+    }
+
+    .icon {
+      font-size: 1.6rem;
+      margin: 14px 0;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 10px 22px;
+      border: none;
+      border-radius: 28px;
+      background: #c14b7a;
+      color: white;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="screen">
+    <h1>Hey, My Rizin 🤍</h1>
+
+    <p>
+      Sometime's life may feel so hard
+      But always remeber u're not alone.
+      Everytime u don't need to bear the weight alone.
+      I am With u in ur hardest time and ur good times.
+    </p>
+
+    <p>
+      Even in silence,
+      even in distance,
+      you’re still held.
+    </p>
+
+    <div class="soft">
+      I’m here.  
+      Softly. Patiently.
+    </div>
+
+    <div class="icon">🌸 🤍 🌸</div>
+
+    <p>
+      Take one slow breath.
+      That’s enough for now.
+    </p>
+
+    <button onclick="playMusic()">Play Music 🎶</button>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="12.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function playMusic() {
+      document.getElementById('bgMusic').play();
+    }
+  </script>
+
+</body>
+</html>

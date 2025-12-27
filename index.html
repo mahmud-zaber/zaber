@@ -5,93 +5,110 @@
 <title>For My Love 💖</title>
 
 <style>
+    * { box-sizing: border-box; }
+
     body {
         margin: 0;
         height: 100vh;
-        background: linear-gradient(135deg, #ffe6f0, #fff5fa);
+        background: linear-gradient(135deg, #1a0011, #33001f);
         font-family: 'Segoe UI', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        color: #fff;
     }
 
     .card {
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
         padding: 40px;
-        border-radius: 25px;
+        border-radius: 30px;
         width: 90%;
         max-width: 520px;
         text-align: center;
-        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        animation: fadeIn 2s ease;
+        box-shadow: 0 0 40px rgba(255,77,136,0.3);
+        animation: fadeUp 1.8s ease;
     }
 
     h1 {
-        color: #ff4d88;
-        font-size: 32px;
-        margin-bottom: 10px;
+        color: #ff7ab3;
+        font-size: 34px;
+        margin-bottom: 15px;
     }
 
-    p {
+    #typing {
         font-size: 18px;
-        color: #555;
-        line-height: 1.7;
+        line-height: 1.8;
+        min-height: 120px;
     }
 
     .heart {
-        font-size: 40px;
+        font-size: 42px;
+        margin: 20px 0;
         animation: pulse 1.5s infinite;
-        margin: 15px 0;
-    }
-
-    .motivation {
-        margin-top: 25px;
-        font-style: italic;
-        color: #777;
     }
 
     button {
         margin-top: 25px;
-        padding: 12px 25px;
+        padding: 14px 28px;
         border: none;
-        border-radius: 30px;
-        background: #ff4d88;
+        border-radius: 40px;
+        background: linear-gradient(135deg, #ff4d88, #ff99bb);
         color: white;
         font-size: 16px;
         cursor: pointer;
         transition: 0.3s;
+        box-shadow: 0 0 20px rgba(255,77,136,0.5);
     }
 
     button:hover {
-        background: #e63e75;
+        transform: scale(1.05);
     }
 
-    audio {
-        display: none;
+    .study {
+        margin-top: 18px;
+        font-style: italic;
+        opacity: 0.85;
+        font-size: 15px;
     }
+
+    audio { display: none; }
 
     @keyframes pulse {
         0% { transform: scale(1); }
-        50% { transform: scale(1.2); }
+        50% { transform: scale(1.25); }
         100% { transform: scale(1); }
     }
 
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(30px); }
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .floating-heart {
+    .floating {
         position: absolute;
-        color: #ff99bb;
-        font-size: 20px;
-        animation: floatUp 6s linear infinite;
+        animation: floatUp 7s linear infinite;
+        opacity: 0.7;
     }
 
     @keyframes floatUp {
-        from { transform: translateY(100vh); opacity: 1; }
-        to { transform: translateY(-10vh); opacity: 0; }
+        from { transform: translateY(110vh); }
+        to { transform: translateY(-10vh); }
+    }
+
+    .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: #ffd6e8;
+        border-radius: 50%;
+        animation: sparkle 3s linear infinite;
+    }
+
+    @keyframes sparkle {
+        from { opacity: 1; transform: scale(1); }
+        to { opacity: 0; transform: scale(0.3); }
     }
 </style>
 </head>
@@ -99,61 +116,64 @@
 <body>
 
 <div class="card">
-    <h1>Hey My Sharhad 💕</h1>
+    <h1>Hey My Love 💕</h1>
 
     <div class="heart">💖</div>
 
-    <p>
-        I know you’re studying hard right now,  
-        pushing yourself even when you’re tired.
-        I just want you to know —  
-        <b>I see you, I admire you, and I’m proud of you.</b>
-    </p>
+    <div id="typing"></div>
 
-    <p>
-        We are grinding together.  
-        Same dreams, same late nights, same hope.  
-        You’re not alone — not today, not ever.
-    </p>
+    <button onclick="startMusic()">Play Music 🎶</button>
 
-    <p class="motivation">
-        “One day, all this effort will turn into success —  
-        and I’ll be right beside you.”
-    </p>
-
-    <button onclick="showLove(), startMusic()">Tap for a little love 💗</button>
+    <div class="study">
+        Breathe… focus… we’ll win this together 🌙
+    </div>
 </div>
 
-<audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4b0cda1a1a.mp3" type="audio/mpeg">
+<audio id="music" loop>
+    <source src="12.mp3" type="audio/mpeg">
 </audio>
 
-
 <script>
-    function showLove() {
-        alert("I believe in you more than you believe in yourself 💖\nNow go ace that exam, my star 🌟");
+    const text = "I know studying feels heavy sometimes...\nBut every page you turn is bringing you closer to your dreams.\n\nWe are grinding together.\nSame nights. Same hope.\nI’m always right here for you. 💖";
+    let i = 0;
+
+    function typeText() {
+        if (i < text.length) {
+            document.getElementById("typing").innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+            i++;
+            setTimeout(typeText, 40);
+        }
+    }
+    typeText();
+
+    function startMusic() {
+        const music = document.getElementById("music");
+        music.volume = 0.35;
+        music.play();
+        alert("I loveeee uuu soo muchh my wifeeee 💗");
     }
 
     function createHeart() {
-        const heart = document.createElement("div");
-        heart.className = "floating-heart";
-        heart.innerHTML = "💗";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
-        document.body.appendChild(heart);
-
-        setTimeout(() => {
-            heart.remove();
-        }, 6000);
+        const h = document.createElement("div");
+        h.className = "floating";
+        h.innerHTML = "💗";
+        h.style.left = Math.random() * 100 + "vw";
+        h.style.fontSize = Math.random() * 18 + 18 + "px";
+        document.body.appendChild(h);
+        setTimeout(() => h.remove(), 7000);
     }
 
-    setInterval(createHeart, 400);
-    function startMusic() {
-    const music = document.getElementById("bgMusic");
-    music.play();
-    alert("I lovee u soo muchh my babyygirl 💖");
-}
+    function createSparkle() {
+        const s = document.createElement("div");
+        s.className = "sparkle";
+        s.style.left = Math.random() * 100 + "vw";
+        s.style.top = Math.random() * 100 + "vh";
+        document.body.appendChild(s);
+        setTimeout(() => s.remove(), 3000);
+    }
 
+    setInterval(createHeart, 500);
+    setInterval(createSparkle, 350);
 </script>
 
 </body>

@@ -121,12 +121,13 @@
         and I’ll be right beside you.”
     </p>
 
-    <button onclick="showLove()">Tap for a little love 💗</button>
+    <button onclick="showLove(), startMusic()">Tap for a little love 💗</button>
 </div>
 
-<audio autoplay loop>
-    <source src="12.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_4b0cda1a1a.mp3" type="audio/mpeg">
 </audio>
+
 
 <script>
     function showLove() {
@@ -147,6 +148,12 @@
     }
 
     setInterval(createHeart, 400);
+    function startMusic() {
+    const music = document.getElementById("bgMusic");
+    music.play();
+    alert("I lovee u soo muchh my babyygirl 💖");
+}
+
 </script>
 
 </body>

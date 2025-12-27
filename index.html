@@ -1,124 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>🤍</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>For My Love 💖</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Playfair Display', serif;
-    }
-
+<style>
     body {
-      height: 100vh;
-      background:
-        linear-gradient(rgba(255,255,255,0.72), rgba(255,255,255,0.72)),
-        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+        margin: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ffe6f0, #fff5fa);
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
     }
 
-    .screen {
-      text-align: center;
-      padding: 30px 25px;
-      background: rgba(255,255,255,0.82);
-      border-radius: 26px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-      max-width: 340px;
-      animation: fadeIn 1.8s ease;
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px;
+        border-radius: 25px;
+        width: 90%;
+        max-width: 520px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        animation: fadeIn 2s ease;
     }
 
     h1 {
-      font-size: 1.7rem;
-      color: #7a3e5d;
-      margin-bottom: 16px;
+        color: #ff4d88;
+        font-size: 32px;
+        margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.02rem;
-      color: #444;
-      line-height: 1.6;
-      margin-bottom: 14px;
+        font-size: 18px;
+        color: #555;
+        line-height: 1.7;
     }
 
-    .soft {
-      font-style: italic;
-      color: #6a5a6b;
-      margin: 18px 0;
+    .heart {
+        font-size: 40px;
+        animation: pulse 1.5s infinite;
+        margin: 15px 0;
     }
 
-    .icon {
-      font-size: 1.6rem;
-      margin: 14px 0;
+    .motivation {
+        margin-top: 25px;
+        font-style: italic;
+        color: #777;
     }
 
     button {
-      margin-top: 18px;
-      padding: 10px 22px;
-      border: none;
-      border-radius: 28px;
-      background: #c14b7a;
-      color: white;
-      font-size: 0.9rem;
-      cursor: pointer;
+        margin-top: 25px;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 30px;
+        background: #ff4d88;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #e63e75;
+    }
+
+    audio {
+        display: none;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
     }
-  </style>
+
+    .floating-heart {
+        position: absolute;
+        color: #ff99bb;
+        font-size: 20px;
+        animation: floatUp 6s linear infinite;
+    }
+
+    @keyframes floatUp {
+        from { transform: translateY(100vh); opacity: 1; }
+        to { transform: translateY(-10vh); opacity: 0; }
+    }
+</style>
 </head>
 
 <body>
 
-  <div class="screen">
-    <h1>Hey, My Rizin 🤍</h1>
+<div class="card">
+    <h1>Hey My Sharhad 💕</h1>
+
+    <div class="heart">💖</div>
 
     <p>
-      Sometime's life may feel so hard
-      But always remeber u're not alone.
-      Everytime u don't need to bear the weight alone.
-      I am With u in ur hardest time and ur good times.
+        I know you’re studying hard right now,  
+        pushing yourself even when you’re tired.
+        I just want you to know —  
+        <b>I see you, I admire you, and I’m proud of you.</b>
     </p>
 
     <p>
-      Even in silence,
-      even in distance,
-      you’re still held.
+        We are grinding together.  
+        Same dreams, same late nights, same hope.  
+        You’re not alone — not today, not ever.
     </p>
 
-    <div class="soft">
-      I’m here.  
-      Softly. Patiently.
-    </div>
-
-    <div class="icon">🌸 🤍 🌸</div>
-
-    <p>
-      Take one slow breath.
-      That’s enough for now.
+    <p class="motivation">
+        “One day, all this effort will turn into success —  
+        and I’ll be right beside you.”
     </p>
 
-    <button onclick="playMusic()">Play Music 🎶</button>
-  </div>
+    <button onclick="showLove()">Tap for a little love 💗</button>
+</div>
 
-  <audio id="bgMusic" loop>
+<audio autoplay loop>
     <source src="12.mp3" type="audio/mpeg">
-  </audio>
+</audio>
 
-  <script>
-    function playMusic() {
-      document.getElementById('bgMusic').play();
+<script>
+    function showLove() {
+        alert("I believe in you more than you believe in yourself 💖\nNow go ace that exam, my star 🌟");
     }
-  </script>
+
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+</script>
 
 </body>
 </html>

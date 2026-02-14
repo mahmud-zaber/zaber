@@ -3,143 +3,210 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Rose Day ❤️</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<title>For My Forever ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 body{
-    height:100vh;
-    background: radial-gradient(circle at top, #2b0000, #000);
-    font-family: 'Poppins', sans-serif;
-    color:#fff;
-    overflow:hidden;
+    background:linear-gradient(135deg,#000000,#1a0000,#330000);
+    color:white;
+    overflow-x:hidden;
 }
 
-/* Center Content */
-.container{
-    position:relative;
-    z-index:10;
-    height:100%;
+section{
+    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    padding:40px 20px;
     text-align:center;
-    padding:20px;
 }
 
-/* Main Text */
-h1{
-    font-family:'Playfair Display', serif;
-    font-size:2.5rem;
+h1,h2{
+    font-family:'Great Vibes',cursive;
     color:#ff4d6d;
-    margin-bottom:15px;
 }
 
-p{
-    font-size:1rem;
-    line-height:1.8;
-    max-width:600px;
-    opacity:0.9;
-}
+h1{font-size:60px;}
+h2{font-size:45px;margin-bottom:20px;}
 
-/* Button */
 button{
-    margin-top:30px;
-    padding:14px 30px;
-    font-size:1rem;
+    padding:12px 25px;
     border:none;
-    border-radius:30px;
-    background:linear-gradient(45deg,#ff4d6d,#ff758f);
+    border-radius:25px;
+    background:#ff4d6d;
     color:white;
     cursor:pointer;
-    box-shadow:0 0 20px rgba(255,77,109,0.6);
-    transition:transform 0.3s;
+    font-size:16px;
+    transition:.3s;
 }
-
 button:hover{
-    transform:scale(1.08);
+    transform:scale(1.1);
+    background:#ff1e4d;
 }
 
-/* Floating Roses */
-.rose{
-    position:absolute;
-    top:-10%;
-    font-size:24px;
-    animation:fall linear infinite;
-    opacity:0.8;
+.hidden{display:none;}
+
+.card{
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:15px;
+    margin:15px;
+    width:250px;
+    cursor:pointer;
+    transition:.3s;
+}
+.card:hover{
+    transform:scale(1.05);
+    background:rgba(255,255,255,0.1);
 }
 
-@keyframes fall{
-    0%{
-        transform:translateY(0) rotate(0deg);
-        opacity:0;
-    }
-    10%{opacity:1;}
-    100%{
-        transform:translateY(120vh) rotate(360deg);
-        opacity:0;
-    }
+.reason{
+    margin:10px;
+    font-size:18px;
+    animation:fadeIn 1s ease-in-out;
 }
 
-/* Footer */
-.signature{
-    position:absolute;
-    bottom:20px;
-    font-size:0.9rem;
-    opacity:0.7;
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+/* floating hearts */
+.heart{
+    position:fixed;
+    bottom:-10px;
+    font-size:20px;
+    color:#ff4d6d;
+    animation: floatUp 6s linear infinite;
+}
+@keyframes floatUp{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(-110vh);}
 }
 </style>
 </head>
 
 <body>
 
-<audio id="music" loop>
+<!-- Intro Section -->
+<section id="intro">
+    <h1>Happy Valentine My Love ❤️</h1>
+    <p>You are about to enter my heart...</p>
+    <br>
+    <button onclick="startExperience()">Enter My Heart</button>
+</section>
+
+<!-- Navigation Section -->
+<section id="menu" class="hidden">
+    <h2>Explore My Love For You 💌</h2>
+    <button onclick="showSection('reasons')">Why I Love You</button><br>
+    <button onclick="showSection('letters')">Open When...</button><br>
+    <button onclick="showSection('timeline')">Our Story</button><br>
+    <button onclick="showSection('forever')">My Promise</button><br>
+</section>
+
+<!-- Reasons Section -->
+<section id="reasons" class="hidden">
+    <h2>I loveeee uu soo muchh because ure my wifeee and cutee little babyy.. U're my wifee. I fell in loveee with u.. I lovee how u care for me. I love it when u do childish act with me. I loveee ur inner child so muchh. I lovee ur eyes they are so preety. I loveee ur smile they give me peace. I lovee ur presence besides me it helps me to be relaxed. I loveee uu soo muchh and I only Loveee u and U only U.</h2>
+    <div id="reasonBox"></div>
+    <button onclick="generateReason()">Show Another Reason</button>
+    <br><br>
+    <button onclick="backToMenu()">Back</button>
+</section>
+
+<!-- Open When Section -->
+<section id="letters" class="hidden">
+    <h2>Open When... 🎁</h2>
+    <div class="card" onclick="openLetter(this,'When you feel sad, remember I am always your safe place.')">You Feel Sad</div>
+    <div class="card" onclick="openLetter(this,'When you miss me, close your eyes and feel my heartbeat calling your name.')">You Miss Me</div>
+    <div class="card" onclick="openLetter(this,'When you doubt yourself, remember you are the strongest and most beautiful soul I know.')">You Doubt Yourself</div>
+    <br>
+    <button onclick="backToMenu()">Back</button>
+</section>
+
+<!-- Timeline Section -->
+<section id="timeline" class="hidden">
+    <h2>Our Story 📖</h2>
+    <p>✨ If i start writing about our love story the storgae will get full but my lovee story will not end bcz this lovee story started from august 3 2025 and countinues to running till eternity.. 
+        Remember the day u first saw me ? and got crush on me. And see now I am ur husband. I Want to thank u babyy bcz u took me out from a dark and showed me light. and Now I am taking a oath that my soul, my lovee, my lovee , me all belongs to u. Only U. I loveee uu soo muchh. We spent soo muchh time together and got bestt memories.. 😁And we are going to make moree memories together.. 
+        Jann tmr future amr upor chere dao. I assure u je u will not regret a bit.. Tomake ami onkk jotno kore rakhbo nijer buk er vitore. Acha ekhn amdr story short e boli.. U got crush on me. U tried to achieve me. U cared for me, u cried for me, u loveeed me soo muuchh. and I feel hard for u. I feel hard for u that i can't imagine a single second without u. I my every breaths i only imagine u. I only want to with u. I loveee uu soo muchhh Babyyy.❤️❤️❤️💗💗💫💫💫
+    </p>
+
+    <br>
+    <button onclick="backToMenu()">Back</button>
+</section>
+
+<!-- Forever Section -->
+<section id="forever" class="hidden">
+    <h2>My Promise 💍</h2>
+    <p>I promise to protect your heart.</p>
+    <p>I promise to stand beside you in every storm.</p>
+    <p>I promise to love you not only in easy days, but especially in hard days.</p>
+    <p>I promise i will marry u soon💍</p>
+    <p>I promise i will not change my lovee will not change i will keep loving u more and more</p>
+    <p>I promise i will stay beside u in every situatuion </p>
+    <p>I promise I will loveee u onlyyy u and uu bcz u mineee and me urs 🫂🫂</p>
+    <p>Inshallah. I promise I will keep all my promises to u</p>
+    <br>
+    <button onclick="backToMenu()">Back</button>
+</section>
+
+<audio id="bgMusic" loop>
     <source src="22.mp3" type="audio/mpeg">
 </audio>
 
-<div class="container">
-    <h1>Happy Rose Day, My Rizin 🌹</h1>
-    <p>
-        I lovee u soo muchh Babyy
-        U mean a lot to me
-        You're my WIfe
-        You're my Babyy
-        A lot of roses for u ❤️❤️🫂
-    </p>
-
-    <button onclick="startLove()">Tap to Feel My Love ❤️</button>
-
-    <div class="signature">
-        — Always yours, Zaber
-    </div>
-</div>
-
 <script>
-function startLove(){
-    document.getElementById("music").play();
+function startExperience(){
+    document.getElementById("intro").classList.add("hidden");
+    document.getElementById("menu").classList.remove("hidden");
+    document.getElementById("bgMusic").play();
 }
 
-/* Create falling roses */
-const roseEmojis = ["🌹","🌹","🥀","🌺"];
-for(let i=0;i<30;i++){
-    let rose = document.createElement("div");
-    rose.className = "rose";
-    rose.innerText = roseEmojis[Math.floor(Math.random()*roseEmojis.length)];
-    rose.style.left = Math.random()*100 + "vw";
-    rose.style.animationDuration = (5 + Math.random()*5) + "s";
-    rose.style.fontSize = (18 + Math.random()*20) + "px";
-    document.body.appendChild(rose);
+function showSection(id){
+    document.getElementById("menu").classList.add("hidden");
+    document.getElementById(id).classList.remove("hidden");
 }
+
+function backToMenu(){
+    document.querySelectorAll("section").forEach(sec=>sec.classList.add("hidden"));
+    document.getElementById("menu").classList.remove("hidden");
+}
+
+function openLetter(card,text){
+    card.innerHTML=text;
+}
+
+const reasons=[
+"U're My wifee",
+"U're My lifee Partner",
+"U're My Babyy",
+"U're My Queen",
+"I love everything about you."
+];
+
+function generateReason(){
+    const box=document.getElementById("reasonBox");
+    const random=reasons[Math.floor(Math.random()*reasons.length)];
+    const p=document.createElement("p");
+    p.classList.add("reason");
+    p.innerText=random;
+    box.appendChild(p);
+}
+
+function createHeart(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(Math.random()*3+3)+"s";
+    document.body.appendChild(heart);
+    setTimeout(()=>{heart.remove();},6000);
+}
+setInterval(createHeart,400);
 </script>
 
 </body>
 </html>
-

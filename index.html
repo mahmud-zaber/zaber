@@ -3,136 +3,351 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Eid Mubarak ❤️</title>
+<title>My Favorite Person ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom, #020111, #191621);
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
-/* Moon */
-.moon {
-    width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, #fff, #ddd);
-    border-radius: 50%;
-    position: absolute;
-    top: 50px;
-    right: 50px;
-    box-shadow: 0 0 40px #fff;
+body{
+font-family:Poppins,sans-serif;
+background:#070707;
+color:white;
+overflow-x:hidden;
 }
 
-/* Stars */
-.star {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: white;
-    animation: twinkle 2s infinite alternate;
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.75)),
+url("https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?auto=format&fit=crop&w=1600&q=80");
+background-size:cover;
+background-position:center;
 }
 
-@keyframes twinkle {
-    from { opacity: 0.2; }
-    to { opacity: 1; }
+.hero h1{
+font-family:'Dancing Script',cursive;
+font-size:6rem;
+color:#ff7eb6;
 }
 
-.container {
-    padding-top: 150px;
+.hero p{
+font-size:1.3rem;
+max-width:700px;
+margin-top:15px;
 }
 
-h1 {
-    font-size: 3rem;
-    color: gold;
+.btn{
+margin-top:40px;
+padding:15px 35px;
+background:#ff4d94;
+border:none;
+border-radius:50px;
+color:white;
+cursor:pointer;
+font-size:1rem;
 }
 
-button {
-    padding: 12px 25px;
-    margin: 10px;
-    border: none;
-    border-radius: 20px;
-    background: gold;
-    color: black;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.3s;
+.section{
+padding:100px 10%;
 }
 
-button:hover {
-    background: white;
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:40px;
+border-radius:25px;
+margin-bottom:40px;
+backdrop-filter:blur(15px);
 }
 
-.message-box {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
+.card h2{
+color:#ff7eb6;
+margin-bottom:20px;
 }
 
-.heart {
-    color: red;
-    font-size: 2rem;
-    animation: pulse 1s infinite;
+.timeline{
+display:grid;
+gap:25px;
 }
 
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+.memory{
+padding:25px;
+background:rgba(255,255,255,.04);
+border-radius:20px;
 }
+
+.final{
+text-align:center;
+padding:120px 10%;
+}
+
+.final h2{
+font-family:'Dancing Script',cursive;
+font-size:5rem;
+color:#ff7eb6;
+}
+
+.typewriter{
+border-right:3px solid #ff7eb6;
+white-space:nowrap;
+overflow:hidden;
+animation:typing 5s steps(40,end), blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+#secret{
+display:none;
+margin-top:30px;
+font-size:1.3rem;
+color:#ffd6ea;
+line-height:2;
+}
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+
+.star{
+position:absolute;
+color:white;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+50%{
+opacity:.2;
+}
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="moon"></div>
+<div class="stars"></div>
 
-<!-- Stars -->
-<script>
-for(let i=0;i<60;i++){
-    let star = document.createElement("div");
-    star.className = "star";
-    star.style.top = Math.random()*100+"vh";
-    star.style.left = Math.random()*100+"vw";
-    document.body.appendChild(star);
-}
-</script>
+<section class="hero">
 
-<div class="container">
-    <h1>Eid Mubarak, My Love 🌙❤️</h1>
+<h1>Rizin ❤️</h1>
 
-    <button onclick="showMessage()">Open My Heart 💌</button>
-    <button onclick="playMusic()">Play Music 🎶</button>
+<p>
+Out of billions of people in this world,
+my heart somehow found its favorite person.
+And that person is you.
+</p>
 
-    <div class="message-box" id="msg">
-        You are the most beautiful blessing in my life.<br><br>
-        This Eid, I just want you to know...<br><br>
-        No matter the distance, you are always in my heart.<br><br>
-        Eid Mubarak, my love ❤️<br><br>
-        <div class="heart">❤️</div>
-    </div>
+<button class="btn" onclick="openStory()">
+Open My Heart ✨
+</button>
+
+</section>
+
+<div id="story" style="display:none">
+
+<section class="section">
+
+<div class="card">
+<h2>The Truth 🌙</h2>
+
+<p>
+You are not special because you are perfect.
+
+You are special because you are you.
+
+Your smile.
+Your laugh.
+Your little habits.
+Your random stories.
+Your voice.
+
+The things you think are ordinary
+are exactly the things I treasure most.
+</p>
 </div>
 
-<audio id="music">
-    <source src="22.mp3" type="audio/mpeg">
-</audio>
+<div class="card">
+
+<h2>My Favorite Version Of Life ❤️</h2>
+
+<p>
+A life where I get to talk to you.
+
+A life where I get to hear your voice.
+
+A life where I get to make you smile.
+
+A life where I get to love you.
+
+That is my favorite version of life.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>If I Could...</h2>
+
+<p>
+If I could take away your sadness,
+I would.
+
+If I could hold your hand whenever life becomes difficult,
+I would.
+
+If I could remind you every day how beautiful,
+strong and precious you are,
+I would never stop.
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>Things I Want You To Remember 🌸</h2>
+
+<div class="timeline">
+
+<div class="memory">
+❤️ You are loved more than you realize.
+</div>
+
+<div class="memory">
+❤️ You are appreciated more than you know.
+</div>
+
+<div class="memory">
+❤️ You are someone's favorite notification.
+</div>
+
+<div class="memory">
+❤️ You are someone's safe place.
+</div>
+
+<div class="memory">
+❤️ You are the first thought of someone's day.
+</div>
+
+<div class="memory">
+❤️ You are the last thought before someone sleeps.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="final">
+
+<h2>Just One More Thing...</h2>
+
+<p class="typewriter">
+Click below when you're ready ❤️
+</p>
+
+<br><br>
+
+<button class="btn" onclick="showSecret()">
+Reveal Secret 💌
+</button>
+
+<div id="secret">
+
+Dear Rizin,
+
+I don’t always find the perfect words to express what I feel, but I want you to know something from the deepest part of my heart.
+
+You are incredibly important to me.
+
+I care about you more than I often know how to show, and sometimes I worry that my actions or words might not fully reflect what I truly feel inside. But please believe me when I say this — my feelings for you are genuine, steady, and sincere.
+
+I don’t just see you as someone special in my life… I see you as someone I deeply value and emotionally care for. Your happiness matters to me. Your feelings matter to me. Even the small things about your day matter to me more than you might realize.
+
+If you are sad, I want to understand you.
+If you are tired, I want to support you.
+If you are happy, I want to be part of that happiness.
+
+I may not always be perfect in how I express myself, but I am always trying to be better for you — to listen better, to care better, and to love in a way that feels safe and comforting for you.
+
+You don’t have to be anything other than yourself with me.
+You don’t have to pretend.
+You don’t have to carry things alone.
+
+I just want you to feel loved, valued, and emotionally safe when I am with you.
+
+And most importantly, I want you to know this:
+
+I am here for you. I care for you. And I truly love you.
+
+Always,
+Zaber ❤️
+
+<br><br>
+
+Forever and always,
+
+<br><br>
+
+<b>Zaber ❤️</b>
+
+</div>
+
+</section>
+
+</div>
 
 <script>
-function showMessage() {
-    document.getElementById("msg").style.display = "block";
+
+function openStory(){
+document.getElementById("story").style.display="block";
+window.scrollTo({
+top:window.innerHeight,
+behavior:"smooth"
+});
 }
 
-function playMusic() {
-    document.getElementById("music").play();
+function showSecret(){
+document.getElementById("secret").style.display="block";
 }
+
+for(let i=0;i<120;i++){
+
+let star=document.createElement("div");
+
+star.className="star";
+star.innerHTML="✦";
+
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
+star.style.opacity=Math.random();
+
+document.querySelector(".stars").appendChild(star);
+}
+
 </script>
 
 </body>

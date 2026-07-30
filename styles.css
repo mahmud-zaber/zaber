@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Inter:wght@200;300&display=swap');
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #00000f;
+  font-family: 'Cormorant Garamond', serif;
+  user-select: none;
+  touch-action: none;
+}
+
+canvas#c {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: block;
+}
+
+canvas#heartCanvas {
+  display: none;
+}
+
+#ui {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: clamp(18px, 4vh, 38px);
+}
+
+#title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.05rem, 4vw, 1.55rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: .2em;
+  color: rgba(235, 220, 255, .97);
+  text-shadow:
+    0 0 18px rgba(167, 139, 250, .65),
+    0 1px 8px rgba(0, 0, 0, .95);
+  transition: opacity 1s;
+  animation: titleGlow 4s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+
+  0%,
+  100% {
+    color: rgba(225, 210, 255, .9);
+    text-shadow:
+      0 0 14px rgba(167, 139, 250, .5),
+      0 1px 8px rgba(0, 0, 0, .95);
+  }
+
+  50% {
+    color: rgba(245, 232, 255, 1);
+    text-shadow:
+      0 0 28px rgba(200, 160, 255, .8),
+      0 1px 8px rgba(0, 0, 0, .95);
+  }
+}
+
+#hint {
+  position: fixed;
+  bottom: clamp(18px, 3.5vh, 36px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(.72rem, 2vw, .86rem);
+  font-weight: 300;
+  letter-spacing: .34em;
+  color: rgba(255, 255, 255, .95);
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: opacity 1.2s;
+  text-shadow:
+    0 0 14px rgba(200, 160, 255, .75),
+    0 1px 8px rgba(0, 0, 0, .95);
+  animation: hintPulse 2.8s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+
+  0%,
+  100% {
+    opacity: .80;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+#finale {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  gap: 10px;
+  padding: 28px 24px;
+  opacity: 0;
+  transition: opacity 2.2s ease;
+  text-align: center;
+}
+
+#finale.visible {
+  opacity: 1;
+}
+
+/* dark scrim sits behind all text lines */
+#finale .text-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 32px 22px;
+  border-radius: 18px;
+  background: transparent;
+}
+
+#finale .line1 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(.78rem, 2.4vw, .95rem);
+  font-weight: 200;
+  letter-spacing: .48em;
+  color: rgba(255, 255, 255, .85);
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+}
+
+#finale .line2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 7.5vw, 4.2rem);
+  font-weight: 300;
+  font-style: italic;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: .02em;
+  text-shadow:
+    0 2px 6px rgba(0, 0, 0, 1),
+    0 0 30px rgba(249, 168, 212, .9),
+    0 0 60px rgba(167, 139, 250, .5);
+  animation: tpulse 3s ease-in-out infinite;
+}
+
+#finale .line3 {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(.7rem, 2vw, .88rem);
+  font-weight: 200;
+  letter-spacing: .3em;
+  color: rgba(255, 255, 255, .7);
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 1);
+}
+
+@keyframes tpulse {
+
+  0%,
+  100% {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .9), 0 0 30px rgba(249, 168, 212, .8), 0 0 60px rgba(167, 139, 250, .4);
+  }
+
+  50% {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, .9), 0 0 50px rgba(249, 168, 212, 1), 0 0 100px rgba(167, 139, 250, .7);
+  }
+}
+
+.replay-btn {
+  position: fixed;
+  bottom: max(24px, env(safe-area-inset-bottom, 24px));
+  right: max(24px, env(safe-area-inset-right, 24px));
+  z-index: 30;
+  pointer-events: none;
+  background: rgba(0, 0, 10, .55);
+  border: 1px solid rgba(210, 190, 255, .4);
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  font-size: 1.4rem;
+  color: rgba(210, 190, 255, .85);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1.6s ease, border-color .25s, color .25s, transform .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.replay-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.replay-btn:hover,
+.replay-btn:active {
+  color: #fff;
+  border-color: rgba(249, 168, 212, .8);
+  transform: rotate(-40deg) scale(1.1);
+}
+
+#finale.visible .replay-btn {
+  opacity: 1;
+}
